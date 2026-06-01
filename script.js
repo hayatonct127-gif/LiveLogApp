@@ -3,7 +3,10 @@ const liveForm = document.getElementById("liveForm");
 const liveList = document.getElementById("liveList");
 
 //初期表示
-document.addEventListener("DOMContentLoaded", displayLives);
+document.addEventListener("DOMContentLoaded", () => {
+    displayLives();
+    searchLives();
+});
 
 //フォーム送信時処理
 liveForm.addEventListener("submit", function(e) {
@@ -48,11 +51,11 @@ liveForm.addEventListener("submit", function(e) {
     displayLives();
 });
 //ライブ一覧表示
-function displayLives() {
+function displayLives(filteredLives) {
     liveList.innerHTML = "";
 
     //ストレージデータ取得
-    const lives = JSON.parse(localStorage.getItem("lives")) || [];
+    const lives = filteredLives || JSON.parse(localStorage.getItem("lives")) || [];
 
     //HTML組み立て
     lives.forEach(function(live) {
@@ -82,4 +85,22 @@ function deleteLive(id) {
     localStorage.setItem("lives", JSON.stringify(lives));
     //再表示
     displayLives();
+}
+//検索機能
+function searchLives() {
+    const searchInput = document.getElementById("searchInput");
+
+    searchInput.addEventListener("input", (e) => {
+        const keyword = e.target.value.toLowerCase();
+
+        //入力時に最新のライブデータを取得
+        const lives = JSON.parse(localStorage.getItem("lives")) || [];
+        //フィルタリング
+        const filteredLives = lives.filter(live => {
+            return live.artist.toLowerCase().includes(keyword) ||
+                    live.place.toLowerCase().includes(keyword);
+        });
+        //表示更新
+        displayLives(filteredLives);
+    } )
 }
