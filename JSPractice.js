@@ -102,3 +102,76 @@ if(value === 0 || value === 1) {
     console.log("正常です");
 }
 
+//アプリ練習
+const addInput = document.getElementById("addInput");
+const addButton = document.getElementById("addButton");
+const todoList = document.getElementById("todoList");
+
+const todos = JSON.parse(localStorage.getItem("todos")) || [];
+
+function renderTodos(list = todos) {
+    todoList.innerHTML = "";
+    list.forEach((todo, index) => {
+        const li = document.createElement("li");
+        
+        //削除
+        const deleteButton = document.createElement("button");
+        deleteButton.textContent = "削除";
+        deleteButton.addEventListener("click", () => {
+            //配列から削除
+            todos.splice(index, 1);
+            //ローカルストレージに保存
+            saveTodos();
+            //再描画
+            renderTodos();
+        });
+
+        //編集
+        const editButton = document.createElement("button");
+        editButton.textContent = "編集";
+        editButton.addEventListener("click", () => {
+
+            //ローカルストレージに保存
+            saveTodos();
+            //再描画
+            renderTodos();
+        });
+        li.appendChild(deleteButton);
+        li.appendChild(editButton);
+        todoList.appendChild(li);
+    });
+}
+
+function saveTodos() {
+    localStorage.setItem("todos", JSON.stringify(todos));
+}
+
+function addTodos() {
+    addButton.addEventListener("click", () => {
+        if(addInput.value === "") {
+            return;
+        }
+        todos.push({task: addInput.value, done: false});
+        //ローカルストレージに保存
+        saveTodos();
+        //再描画
+        renderTodos();
+        //入力欄を空にする
+        addInput.value = "";
+    });
+}
+
+function searchTodos() {
+    const searchInput = document.createElement("input");
+    searchInput.placeholder = "検索ワード入力";
+    searchInput.addEventListener("input", () => {
+        const result = todos.filter(todo => todo.task.includes(searchInput.value));
+
+        //ローカルストレージに保存
+        saveTodos();
+        //再描画
+        renderTodos(result);
+    })
+}
+//初期表示
+renderTodos();
