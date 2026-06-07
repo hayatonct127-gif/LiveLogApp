@@ -11,3 +11,37 @@
     <ul id="todoList"></ul>
 </body>
 </html>
+
+//分割代入
+const user = {id: 1, name: "John Doe", email: "john.doe@example.com"};
+
+const {name, email} = user;
+console.log(name);
+
+//スプレッド構文
+const originalUser = {id: 1, name: "Sato", age: 25};
+const updatedUser = {...originalUser, age:26};
+
+const arr1 = [1, 2, 3];
+const arr2  = [...arr1, 4, 5]; 
+const arr3 = ["tom", "cat", "dog"].concat(arr1, arr2);
+
+//アロー関数
+const calculateTax = (price, tax) => {
+    return price * tax;
+};
+
+const add = (a, b) => a + b;
+
+//三項演算子
+const age = 20;
+const message = age >= 18 ? "成人です" : "未成年です";
+
+//短絡評価
+{hasUser && <MyPageButton />}
+const displayMessage = message || "メッセージがありません";
+
+//文字埋め込み
+const name = "山田";
+const point = 100;
+const message = `こんにちは、${name}さん。現在のポイントは${point}です。`;
