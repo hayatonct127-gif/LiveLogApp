@@ -43,6 +43,53 @@ public class JavaPractice {
         if(targetId != currentId) {
             System.out.println("このデータは削除対象ではありません。");
         }
+
+        String band = "ONE OK ROCK";
+
+        if(band.equals("ONE OK ROCK")) {
+            System.out.println("日本のバンドです");
+        } else {
+            System.out.println("海外のロックバンドです");
+        }
+
+        String[] bands = {"MY FIRST STORY",
+                            "Linkin Park",
+                            "Green Day"
+        };
+
+        for(int i = 0; i < bands.length; i++) {
+            System.out.println(bands[i]);
+        }
+
+        int count4 = 1;
+
+        while(count4 <= 5) {
+            System.out.println(count4);
+            count4++;
+        }
+
+        String band1 = "Nirvana";
+
+        switch(band1) {
+            case "ONE OK ROCK":
+                System.out.println("日本");
+                break;
+            case "Nirvana":
+                System.out.println("アメリカ");
+                break;
+            
+            default:
+                System.out.println("不明");
+        }
+
+        for(String bands1 : bands) {
+            if(bands1.equals("Nirvana")) {
+                continue;
+            }
+            System.out.println(bands1);
+        }
+
+        
         
     }
 }
