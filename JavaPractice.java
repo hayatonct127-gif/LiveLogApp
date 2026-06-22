@@ -1,4 +1,9 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class JavaPractice {
+
+
     public static void main(String[] args) {
         int age = 39;
     
@@ -87,6 +92,20 @@ public class JavaPractice {
                 continue;
             }
             System.out.println(bands1);
+        }
+
+        List<String> artists = new ArrayList<>();
+
+        artists.add("ONE OK ROCK");
+        artists.add("Nirvana");
+
+        System.out.println(artists);
+
+        artists.remove("ONE OK ROCK");
+        artists.remove("Nirvana");
+
+        if(artists.isEmpty()) {
+            System.out.println("データを挿入できませんでした");
         }
 
         
