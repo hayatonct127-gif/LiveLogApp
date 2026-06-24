@@ -107,8 +107,6 @@ public class JavaPractice {
         if(artists.isEmpty()) {
             System.out.println("データを挿入できませんでした");
         }
-
-        
         
     }
 }
