@@ -100,5 +100,36 @@ public class Basic {
             System.out.println(team);
         }
 
+        //class
+        BandDto bandes = new BandDto();
+        bandes.name = "HEY SMITH";
+        bandes.country = "日本";
+        bandes.memberCount = 6;
+        bandes.active = true;
+
+        System.out.println(bandes.name);
+
+        // public class Artist {
+        //     String name;
+        //     String country;
+        //     String genre;
+        // }
+        // Artist artist = new Artist();
+        // artist.name = "Linkin Park";
+        // artist.country = "アメリカ";
+        // artist.genre = "Rock";
+
+        // System.out.println(artist.name);
+
+        // Artist artist1 = new Artist();
+        // artist1.name = "ONE OK ROCK";
+        // artist1.country = "日本";
+        // artist1.genre = "Rock";
+
+        // List<Artist> artists = new ArrayList<>();
+        // artists.add(artist);
+        // artists.add(artist1);
+
+        
     }
 }
