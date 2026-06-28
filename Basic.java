@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Basic {
     public static void main(String[] args) {
         String bandName = "BRING ME THE HORIZON";
@@ -67,5 +70,35 @@ public class Basic {
         if(band.equals("ONE OK ROCK") || band.equals("Nirvana")) {
             System.out.println("有名ロックバンド");
         }
+
+        String[] bands = {
+                    "ワンオク",
+                    "Nirvana",
+                    "Green Day",
+                    "Linkin Park"
+        };
+        for(int i = 0; i < bands.length; i++ ) {
+            System.out.println(bands[i]);
+        }
+
+        for(String bandsName : bands) {
+            System.out.println(bandsName);
+        }
+        //List
+        List<String> teams = new ArrayList<>();
+        teams.add("チェルシー");
+        teams.add("リヴァプール");
+        teams.add("ドルトムント");
+
+        System.out.println(teams.get(1));
+
+        System.out.println(teams.size());
+
+        teams.remove(1);
+
+        for(String team : teams) {
+            System.out.println(team);
+        }
+
     }
 }
