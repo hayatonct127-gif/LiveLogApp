@@ -101,11 +101,10 @@ public class Basic {
         }
 
         //class
-        BandDto bandes = new BandDto();
-        bandes.name = "HEY SMITH";
-        bandes.country = "日本";
-        bandes.memberCount = 6;
-        bandes.active = true;
+        // BandDto bandes = new BandDto();
+        // bandes.name = "HEY SMITH";
+        // bandes.country = "日本";
+        // bandes.memberCount = 6;
 
         System.out.println(bandes.name);
 
@@ -130,6 +129,17 @@ public class Basic {
         // artists.add(artist);
         // artists.add(artist1);
 
-        
+        //コンストラクタ
+        BandDto bandes = new BandDto("ONE OK ROCK", "日本", 4);
+        System.out.println(bandes.name);
+
+        BandDto bandes1 = new BandDto("coldrain", "日本", 5);
+        List<BandDto> bandess = new ArrayList<>();
+        bandess.add(bandes);
+        bandess.add(bandes1);
+
+        bandes.setName("ONE OK ROCK");
+        bandes.setCountry("日本");
+        System.out.println(bandes.getName());
     }
 }
